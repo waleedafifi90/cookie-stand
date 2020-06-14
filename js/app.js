@@ -158,6 +158,45 @@ var Paris = {
 
 Paris.renderedArray();
 
+var Lima = {
+    location: 'Lima',
+    minCustomer: 2,
+    maxCustomer: 16,
+    avgCookies: 4.6,
+    opningTime: opningTime,
+    totalCookies: 0,
+    numberPerHour: generateRandomeCookies(this.minCustomer, this.maxCustomer),
+    renderedArray: function() {
+        var parentElement = document.getElementById('SalesReport');
+
+        var article = document.createElement('article');
+        parentElement.appendChild(article);
+
+        var h2 = document.createElement('h2');
+        h2.textContent = this.location;
+        article.appendChild(h2);
+
+        var ul = document.createElement('ul');
+        article.appendChild(ul);
+
+        for(var i = 0; i < this.opningTime.length; i++) {
+
+            var li = document.createElement('li');
+
+            this.numberPerHour = generateRandomeCookies(this.minCustomer, this.maxCustomer);
+            this.totalCookies += this.numberPerHour * Math.floor(this.avgCookies);
+            li.textContent = this.opningTime[i] + ' : ' + this.numberPerHour * Math.floor(this.avgCookies) + ' Cookies';
+            ul.appendChild(li);
+        }
+
+        var totlaLi = document.createElement('li');
+        totlaLi.textContent = 'Total : ' + this.totalCookies + ' Cookies';
+        ul.appendChild(totlaLi);
+    }
+};
+
+Lima.renderedArray();
+
 function generateRandomeCookies(min, max) {
     var randomValue = Math.random();
     return Math.floor(randomValue * (max - min + 1)) + min;
