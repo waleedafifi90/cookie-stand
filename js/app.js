@@ -1,4 +1,4 @@
-var opningTime = [6,7,8,9,10,11,12,1,2,3,4,5,6,7];
+var opningTime = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
 var Seattle = {
     location: 'Seattle',
@@ -6,12 +6,34 @@ var Seattle = {
     maxCustomer: 65,
     avgCookies: 6.3,
     opningTime: opningTime,
+    totalCookies: 0,
     numberPerHour: generateRandomeCookies(this.minCustomer, this.maxCustomer),
     renderedArray: function() {
+        var parentElement = document.getElementById('SalesReport');
+
+        var article = document.createElement('article');
+        parentElement.appendChild(article);
+
+        var h2 = document.createElement('h2');
+        h2.textContent = this.location;
+        article.appendChild(h2);
+
+        var ul = document.createElement('ul');
+        article.appendChild(ul);
+
         for(var i = 0; i < this.opningTime.length; i++) {
-            console.log(this.opningTime[i] + ':' + this.numberPerHour * Math.floor(this.avgCookies));
-            this.numberPerHour = generateRandomeCookies(23, 65);
+
+            var li = document.createElement('li');
+
+            this.numberPerHour = generateRandomeCookies(this.minCustomer, this.maxCustomer);
+            this.totalCookies += this.numberPerHour * Math.floor(this.avgCookies);
+            li.textContent = this.opningTime[i] + ' : ' + this.numberPerHour * Math.floor(this.avgCookies) + ' Cookies';
+            ul.appendChild(li);
         }
+
+        var totlaLi = document.createElement('li');
+        totlaLi.textContent = 'Total : ' + this.totalCookies + ' Cookies';
+        ul.appendChild(totlaLi);
     }
 };
 
