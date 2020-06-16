@@ -136,3 +136,107 @@ footer p {
     font-weight: 700;
     background-color: #709fb0;
 }
+
+#ClassInformation .container p{
+    margin: 0;
+    line-height: 50px;
+}
+
+#ClassInformation .container div p:first-child {
+    color: #fff;
+    background: #07031a;
+}
+
+#ClassInformation .container div p:last-child {
+    color: #fff;
+    background: #4f8a8b;
+}
+
+#ClassInformation > div {
+    float: left;
+    width: 20%;
+    
+  }
+.container {
+    padding: 10px;
+    text-align: center;
+}
+#ClassInformation:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-right: 10px;
+  }
+
+#ClassInformation p img {
+    width: 20px;
+}
+
+
+.image-slider{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 50%;
+    top: 1em;
+    margin-left: -100px;
+    overflow: hidden;
+    background: #292929;
+    border: 10px solid #fff;
+}
+.image-slider article{
+    position: absolute;
+    left: 200px;
+    color: #e3e3e3;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font: 2em/1em sans-serif;
+    /* padding-top: 80px; */
+  }
+
+  .image-slider img {
+      width: 200px;
+      height: 200px;
+  }
+
+  .image-slider article:nth-of-type(1){
+    animation: slideIn 50s linear 0s infinite;
+  }
+  .image-slider article:nth-of-type(2){
+    animation: slideIn 50s linear 5s infinite;
+  }
+  .image-slider article:nth-of-type(3){
+    animation: slideIn 50s linear 10s infinite;
+  }
+  .image-slider article:nth-of-type(4){
+    animation: slideIn 50s linear 15s infinite;
+  }
+  .image-slider article:nth-of-type(5){
+    animation: slideIn 50s linear 20s infinite;
+  }
+  .image-slider article:nth-of-type(6){
+    animation: slideIn 50s linear 25s infinite;
+  }
+  .image-slider article:nth-of-type(7){
+    animation: slideIn 50s linear 30s infinite;
+  }
+  .image-slider article:nth-of-type(8){
+    animation: slideIn 50s linear 35s infinite;
+  }
+  .image-slider article:nth-of-type(9){
+    animation: slideIn 50s linear 40s infinite;
+  }
+  .image-slider article:nth-of-type(10){
+    animation: slideIn 50s linear 45s infinite;
+  }
+  
+  @keyframes slideIn{
+    0% {left: 200px;}
+    1% {left: 0;}
+    10% {left: 0;}
+    11% {left: -200px;}
+    100%{left: -200px;}
+  }
+  
+  

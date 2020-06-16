@@ -6,7 +6,7 @@ var tbody = document.createElement('tbody');
 var locationName = [];
 var totalCookiesArray = [];
 
-function Store(location, minCustomer, maxCustomer, avgCookies, opningTime, totalCookies) {
+function Store(location, minCustomer, maxCustomer, avgCookies, opningTime, totalCookies, address, phone) {
     this.location = location;
     this.minCustomer = minCustomer;
     this.maxCustomer = maxCustomer;
@@ -15,6 +15,8 @@ function Store(location, minCustomer, maxCustomer, avgCookies, opningTime, total
     this.numberPerHour = 0;
     this.totalCookies = totalCookies;
     this.cookiesPerHour = [];
+    this.address = address;
+    this.phone = phone;
     locationName.push(this);
 }
 
@@ -53,19 +55,19 @@ Store.prototype.renderedArray = function() {
 };
 
 
-var Seattle = new Store('Seattle', 23, 65, 6.3, opningTime, 0);
+var Seattle = new Store('Seattle', 23, 65, 6.3, opningTime, 0, 'House no.45 second floor, 5th cross', '+1 213 44335544');
 Seattle.renderedArray();
 
-var Tokyo = new Store('Tokyo', 3, 24, 1.2, opningTime, 0);
+var Tokyo = new Store('Tokyo', 3, 24, 1.2, opningTime, 0, 'House no.45 second floor, 5th cross', '+1 213 44335544');
 Tokyo.renderedArray();
 
-var Dubai = new Store('Dubai', 11, 38, 3.7, opningTime, 0);
+var Dubai = new Store('Dubai', 11, 38, 3.7, opningTime, 0, 'House no.45 second floor, 5th cross', '+1 213 44335544');
 Dubai.renderedArray();
 
-var Paris = new Store('Paris', 20, 28, 2.3, opningTime, 0);
+var Paris = new Store('Paris', 20, 28, 2.3, opningTime, 0, 'House no.45 second floor, 5th cross', '+1 213 44335544');
 Paris.renderedArray();
 
-var Lima = new Store('Lima', 2, 16, 4.6, opningTime, 0);
+var Lima = new Store('Lima', 2, 16, 4.6, opningTime, 0, 'House no.45 second floor, 5th cross', '+1 213 44335544');
 Lima.renderedArray();
 
 createTable();
@@ -126,3 +128,47 @@ function generateRandomeCookies(min, max) {
     return Math.floor(randomValue * (max - min + 1)) + min;
 }
 
+// function indexStoreInformation() {
+//     var parentElement = document.getElementById('ClassInformation');
+
+//     console.log(locationName);
+//     for(var i = 0; i < this.locationName.length; i++) {
+//         var div1 = document.createElement('div');
+//         parentElement.appendChild(div1);
+        
+//         var div2 = document.createElement('div');
+//         div2.setAttribute('class', 'container');
+//         div1.appendChild(div2);
+
+//         var h2 = document.createElement('h2');
+//         h2.textContent = this.locationName[i].location;
+//         div2.appendChild(h2);
+
+//         var div3 = document.createElement('div');
+//         div2.appendChild(div3);
+
+//         var p1 = document.createElement('p');
+//         p1.textContent = 'Opening Time';
+//         div3.appendChild(p1);
+
+//         var p2 = document.createElement('p');
+//         p2.textContent = '';
+//         div3.appendChild(p2);
+
+//         var p3 = document.createElement('p');
+//         p3.textContent = this.locationName[i].address;
+//         div2.appendChild(p3);
+
+//         var img = document.createElement('img');
+//         p3.appendChild(img);
+
+//         var p4 = document.createElement('p');
+//         p4.textContent = this.locationName[i].phone;
+//         div2.appendChild(p4);
+
+//         var img1 = document.createElement('img');
+//         p4.appendChild(img1);
+
+//     }
+// }
+// indexStoreInformation();
