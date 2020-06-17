@@ -20,6 +20,33 @@
     </header>
 
     <main>
+        <form id="cookiesForm">
+            <fieldset>
+                <legend>Add new branch</legend>
+
+                <div>
+                    <label for="branchName">Branch Name</label>
+                    <input required class="input-class" type="text" id="branchName">
+                </div>
+                
+                <div>
+                    <label for="minCustomer">Minimum Customer</label>
+                    <input required class="input-class" type="number" id="minCustomer">
+                </div>
+
+                <div>
+                    <label for="maxCustomer">Max Customer</label>
+                    <input required class="input-class" type="number" id="maxCustomer">
+                </div>
+
+                <div>
+                    <label for="avgCookies">Avarage Cookies</label>
+                    <input required class="input-class" step="0.1" type="number" id="avgCookies">
+                </div>
+
+                <input class="btn" type="submit" value="Save">
+            </fieldset>
+        </form>
         <div id="SalesReport">
         
         </div>    

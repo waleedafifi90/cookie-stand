@@ -1,4 +1,4 @@
-var opningTime = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+var opningTime = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var article = document.createElement('article');
 var table = document.createElement('table');
 var tbody = document.createElement('tbody');
@@ -20,7 +20,7 @@ function Store(location, minCustomer, maxCustomer, avgCookies, opningTime, total
     locationName.push(this);
 }
 
-Store.prototype.renderedArray = function() {
+Store.prototype.renderedArray = function () {
     var parentElement = document.getElementById('SalesReport');
 
     parentElement.appendChild(article);
@@ -34,16 +34,16 @@ Store.prototype.renderedArray = function() {
     tdLocationName.textContent = this.location;
     tr.appendChild(tdLocationName);
 
-    for(var i = 0; i < this.opningTime.length; i++) {
+    for (var i = 0; i < this.opningTime.length; i++) {
 
         var td = document.createElement('td');
 
         this.numberPerHour = generateRandomeCookies(this.minCustomer, this.maxCustomer);
-        this.totalCookies += this.numberPerHour * Math.floor(this.avgCookies);
+        this.totalCookies += Math.floor(this.numberPerHour * (this.avgCookies));
 
-        this.cookiesPerHour.push(this.numberPerHour * Math.floor(this.avgCookies));
+        this.cookiesPerHour.push(Math.floor(this.numberPerHour * (this.avgCookies)));
 
-        td.textContent = this.numberPerHour * Math.floor(this.avgCookies);
+        td.textContent = Math.floor(this.numberPerHour * (this.avgCookies));
         tr.appendChild(td);
     }
 
@@ -73,11 +73,11 @@ Lima.renderedArray();
 createTable();
 
 function createTable() {
-    
+
     // console.log(this.locationName.length);
 
     this.opningTime.unshift('');
-    
+
     var thead = document.createElement('thead');
     table.appendChild(thead);
 
@@ -90,7 +90,7 @@ function createTable() {
     var footerRow = document.createElement('tr');
     tfoot.appendChild(footerRow);
 
-    for(var i = 0; i < this.opningTime.length; i++) {
+    for (var i = 0; i < this.opningTime.length; i++) {
         var td = document.createElement('td');
         td.textContent = opningTime[i];
         tr.appendChild(td);
@@ -98,35 +98,57 @@ function createTable() {
 
 
     var b = [];
-     	
-    for(i = 0; i < totalCookiesArray[0].length; i++){						
+
+    for (i = 0; i < totalCookiesArray[0].length; i++) {
         count = 0;
-        for(j = 0; j < totalCookiesArray.length; j++){				
+        for (j = 0; j < totalCookiesArray.length; j++) {
             count += totalCookiesArray[j][i];
         }
         b.push(count);
-    }		
+    }
     console.log(b);
 
     b.unshift('Totals');
     for (var y = 0; y < b.length; y++) {
-            var tdFoot = document.createElement('td');
-            tdFoot.textContent = b[y];
-            footerRow.appendChild(tdFoot);
+        var tdFoot = document.createElement('td');
+        tdFoot.textContent = b[y];
+        footerRow.appendChild(tdFoot);
     }
 
     console.log(totalCookiesArray);
     var totalTD = document.createElement('td');
     totalTD.textContent = "Daily Location Total";
     tr.appendChild(totalTD);
+    this.opningTime.shift('');
 
- 
+
 }
 
 function generateRandomeCookies(min, max) {
     var randomValue = Math.random();
     return Math.floor(randomValue * (max - min + 1)) + min;
 }
+
+
+var cookiesForm = document.getElementById('cookiesForm');
+cookiesForm.addEventListener('submit', addNewBranch);
+
+function addNewBranch(event) {
+    event.preventDefault();
+
+    var branchName = event.target.branchName.value;
+    var minCustomer = event.target.minCustomer.value;
+    var maxCustomer = event.target.maxCustomer.value;
+    var avgCookies = event.target.avgCookies.value;
+
+    var newStore = new Store(branchName, parseInt(minCustomer), parseInt(maxCustomer), avgCookies, opningTime, 0, '', '');
+    newStore.renderedArray();
+    // createTable();
+
+    console.log(event.target.branchName.value);
+
+}
+
 
 // function indexStoreInformation() {
 //     var parentElement = document.getElementById('ClassInformation');
@@ -135,7 +157,7 @@ function generateRandomeCookies(min, max) {
 //     for(var i = 0; i < this.locationName.length; i++) {
 //         var div1 = document.createElement('div');
 //         parentElement.appendChild(div1);
-        
+
 //         var div2 = document.createElement('div');
 //         div2.setAttribute('class', 'container');
 //         div1.appendChild(div2);

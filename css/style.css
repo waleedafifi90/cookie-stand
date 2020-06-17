@@ -240,3 +240,41 @@ footer p {
   }
   
   
+fieldset {
+  background-color:#bac964;
+  max-width:500px;
+  padding:16px;	
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+legend {
+  margin-bottom:0px;
+  margin-left:16px;
+  color: #436f8a;
+}
+
+fieldset div {
+    margin-bottom: 10px;
+}
+
+fieldset .input-class {
+    display: block;
+    height: 25px;
+    border: 1px solid #f7fbe1;
+    width: 95%;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin: 0 auto;
+}
+
+fieldset .btn {
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid #436f8a;
+    background: #436f8a;
+    color: #fff;
+    cursor: pointer;
+}
