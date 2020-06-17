@@ -72,30 +72,12 @@ Lima.renderedArray();
 
 createTable();
 
-function createTable() {
-
-    // console.log(this.locationName.length);
-
-    this.opningTime.unshift('');
-
-    var thead = document.createElement('thead');
-    table.appendChild(thead);
-
-    var tr = document.createElement('tr');
-    thead.appendChild(tr);
-
+function tableFooter() {
     var tfoot = document.createElement('tfoot');
     table.appendChild(tfoot);
 
     var footerRow = document.createElement('tr');
     tfoot.appendChild(footerRow);
-
-    for (var i = 0; i < this.opningTime.length; i++) {
-        var td = document.createElement('td');
-        td.textContent = opningTime[i];
-        tr.appendChild(td);
-    }
-
 
     var b = [];
 
@@ -114,13 +96,38 @@ function createTable() {
         tdFoot.textContent = b[y];
         footerRow.appendChild(tdFoot);
     }
+}
 
-    console.log(totalCookiesArray);
+function createTable() {
+
+    // console.log(this.locationName.length);
+
+    this.opningTime.unshift('');
+
+    var thead = document.createElement('thead');
+    table.appendChild(thead);
+
+    var tr = document.createElement('tr');
+    thead.appendChild(tr);
+
+
+    for (var i = 0; i < this.opningTime.length; i++) {
+        var td = document.createElement('td');
+        td.textContent = opningTime[i];
+        tr.appendChild(td);
+    }
+
+
+    
+
+    // console.log(totalCookiesArray);
     var totalTD = document.createElement('td');
     totalTD.textContent = "Daily Location Total";
     tr.appendChild(totalTD);
-    this.opningTime.shift('');
 
+    tableFooter();
+
+    this.opningTime.shift('');
 
 }
 
@@ -144,6 +151,8 @@ function addNewBranch(event) {
     var newStore = new Store(branchName, parseInt(minCustomer), parseInt(maxCustomer), avgCookies, opningTime, 0, '', '');
     newStore.renderedArray();
     // createTable();
+    table.deleteTFoot();
+    tableFooter();
 
     console.log(event.target.branchName.value);
 
